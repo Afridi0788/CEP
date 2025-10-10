@@ -18,127 +18,140 @@ import {
 import { Input } from "@/components/ui/input"
 import Link from "next/link"
 
+// Note: I've added a 'youtubeVideoId' to each stream object
+// This will be used on the details page.
 const streams = [
   {
     id: "computer-science",
     category: "science",
     title: "Computer Science & Engineering",
-    description: "Software development, AI, machine learning, and cutting-edge technology",
+    description: "Software development, AI, machine learning, and cutting-edge technology.",
     eligibility: "10+2 with Physics, Chemistry, Mathematics",
     duration: "4 years",
     careers: ["Software Engineer", "Data Scientist", "AI Specialist", "Full Stack Developer"],
     icon: GraduationCap,
     color: "bg-[hsl(142,71%,45%)]",
+    youtubeVideoId: "Q_fL0J3_J2I",
   },
   {
     id: "mechanical-engineering",
     category: "science",
     title: "Mechanical Engineering",
-    description: "Design, manufacturing, and maintenance of mechanical systems",
+    description: "Design, manufacturing, and maintenance of mechanical systems.",
     eligibility: "10+2 with Physics, Chemistry, Mathematics",
     duration: "4 years",
     careers: ["Mechanical Engineer", "Automotive Engineer", "Robotics Engineer", "Design Engineer"],
     icon: GraduationCap,
     color: "bg-[hsl(142,71%,45%)]",
+    youtubeVideoId: "SO04hV8AnP0",
   },
   {
     id: "chartered-accountancy",
     category: "commerce",
     title: "Chartered Accountancy (CA)",
-    description: "Financial accounting, auditing, taxation, and business advisory",
+    description: "Financial accounting, auditing, taxation, and business advisory.",
     eligibility: "10+2 in any stream",
     duration: "4-5 years",
     careers: ["Chartered Accountant", "Tax Consultant", "Financial Advisor", "Auditor"],
     icon: Calculator,
     color: "bg-[hsl(24,95%,53%)]",
+    youtubeVideoId: "G6a9Ld2BVSQ",
   },
   {
     id: "business-administration",
     category: "commerce",
     title: "Business Administration (BBA/MBA)",
-    description: "Management, marketing, finance, and entrepreneurship",
+    description: "Management, marketing, finance, and entrepreneurship.",
     eligibility: "10+2 in any stream",
     duration: "3-5 years",
     careers: ["Business Manager", "Marketing Manager", "HR Manager", "Entrepreneur"],
     icon: Calculator,
     color: "bg-[hsl(24,95%,53%)]",
+    youtubeVideoId: "2nC8sFtrg4w",
   },
   {
     id: "psychology",
     category: "arts",
     title: "Psychology",
-    description: "Human behavior, mental health, counseling, and research",
+    description: "Human behavior, mental health, counseling, and research.",
     eligibility: "10+2 in any stream",
     duration: "3-5 years",
     careers: ["Clinical Psychologist", "Counselor", "HR Specialist", "Researcher"],
     icon: Palette,
     color: "bg-[hsl(0,72%,51%)]",
+    youtubeVideoId: "83nSxx-Y5q4",
   },
   {
     id: "journalism",
     category: "arts",
     title: "Journalism & Mass Communication",
-    description: "Media, reporting, content creation, and digital communication",
+    description: "Media, reporting, content creation, and digital communication.",
     eligibility: "10+2 in any stream",
     duration: "3 years",
     careers: ["Journalist", "Content Writer", "News Anchor", "Digital Marketer"],
     icon: Palette,
     color: "bg-[hsl(0,72%,51%)]",
+    youtubeVideoId: "JTqgTjW58sM",
   },
   {
     id: "mbbs",
     category: "medical",
     title: "MBBS (Bachelor of Medicine)",
-    description: "Medical practice, patient care, and healthcare services",
+    description: "Medical practice, patient care, and healthcare services.",
     eligibility: "10+2 with Physics, Chemistry, Biology",
     duration: "5.5 years",
     careers: ["Doctor", "Surgeon", "Medical Officer", "Specialist"],
     icon: Stethoscope,
     color: "bg-[hsl(142,71%,45%)]",
+    youtubeVideoId: "s4xGHbBE0vA",
   },
   {
     id: "pharmacy",
     category: "medical",
     title: "Pharmacy (B.Pharm)",
-    description: "Pharmaceutical sciences, drug development, and healthcare",
+    description: "Pharmaceutical sciences, drug development, and healthcare.",
     eligibility: "10+2 with Physics, Chemistry, Biology/Mathematics",
     duration: "4 years",
     careers: ["Pharmacist", "Drug Inspector", "Research Scientist", "Medical Representative"],
     icon: Stethoscope,
     color: "bg-[hsl(142,71%,45%)]",
+    youtubeVideoId: "F_cIIL1yKw8",
   },
   {
     id: "law",
     category: "law",
     title: "Law (LLB/BA LLB)",
-    description: "Legal practice, advocacy, corporate law, and judiciary",
+    description: "Legal practice, advocacy, corporate law, and judiciary.",
     eligibility: "10+2 in any stream",
     duration: "3-5 years",
     careers: ["Lawyer", "Corporate Counsel", "Judge", "Legal Advisor"],
     icon: Scale,
     color: "bg-[hsl(24,95%,53%)]",
+    youtubeVideoId: "mgu_mY0Gq_4",
   },
   {
     id: "graphic-design",
     category: "design",
     title: "Graphic Design",
-    description: "Visual communication, branding, and digital design",
+    description: "Visual communication, branding, and digital design.",
     eligibility: "10+2 in any stream",
     duration: "3-4 years",
     careers: ["Graphic Designer", "UI/UX Designer", "Brand Designer", "Art Director"],
     icon: Briefcase,
     color: "bg-[hsl(0,72%,51%)]",
+    youtubeVideoId: "YqQx75OPRa0",
   },
   {
     id: "architecture",
     category: "design",
     title: "Architecture (B.Arch)",
-    description: "Building design, urban planning, and sustainable architecture",
+    description: "Building design, urban planning, and sustainable architecture.",
     eligibility: "10+2 with Physics, Chemistry, Mathematics",
     duration: "5 years",
     careers: ["Architect", "Urban Planner", "Interior Designer", "Landscape Architect"],
     icon: Briefcase,
     color: "bg-[hsl(0,72%,51%)]",
+    youtubeVideoId: "o9Q68b5I9Pg",
   },
 ]
 
@@ -224,11 +237,11 @@ export default function StreamsPage() {
               <p className="text-lg text-muted-foreground">No streams found matching your criteria.</p>
             </div>
           ) : (
-            <div className="grid gap-6 md:grid-cols-2">
+            <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
               {filteredStreams.map((stream) => {
                 const Icon = stream.icon
                 return (
-                  <Card key={stream.id} className="group transition-all hover:shadow-lg">
+                  <Card key={stream.id} className="group flex flex-col transition-all hover:shadow-lg">
                     <CardHeader>
                       <div className="mb-4 flex items-start justify-between">
                         <div className={`flex h-12 w-12 items-center justify-center rounded-xl ${stream.color}`}>
@@ -238,32 +251,37 @@ export default function StreamsPage() {
                       </div>
                       <CardTitle className="text-xl">{stream.title}</CardTitle>
                     </CardHeader>
-                    <CardContent className="space-y-4">
-                      <p className="text-muted-foreground">{stream.description}</p>
-
+                    <CardContent className="flex flex-1 flex-col justify-between space-y-4">
                       <div>
-                        <h4 className="mb-2 text-sm font-semibold text-foreground">Eligibility</h4>
-                        <p className="text-sm text-muted-foreground">{stream.eligibility}</p>
-                      </div>
-
-                      <div>
-                        <h4 className="mb-2 text-sm font-semibold text-foreground">Career Opportunities</h4>
-                        <div className="flex flex-wrap gap-2">
-                          {stream.careers.map((career) => (
-                            <Badge key={career} variant="outline" className="text-xs">
-                              {career}
-                            </Badge>
-                          ))}
+                        <p className="text-muted-foreground">{stream.description}</p>
+                        <div className="mt-4">
+                          <h4 className="mb-2 text-sm font-semibold text-foreground">Career Opportunities</h4>
+                          <div className="flex flex-wrap gap-2">
+                            {stream.careers.slice(0, 3).map((career) => (
+                              <Badge key={career} variant="outline" className="text-xs">
+                                {career}
+                              </Badge>
+                            ))}
+                            {stream.careers.length > 3 && (
+                              <Badge variant="outline" className="text-xs">
+                                +{stream.careers.length - 3} more
+                              </Badge>
+                            )}
+                          </div>
                         </div>
                       </div>
 
-                      <Button
-                        variant="ghost"
-                        className="w-full justify-between text-[hsl(180,60%,30%)] hover:bg-[hsl(180,60%,30%)]/10 hover:text-[hsl(180,60%,25%)]"
-                      >
-                        View Details
-                        <ChevronRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-                      </Button>
+                      {/* --- MODIFICATION START --- */}
+                      <Link href={`/streams/${stream.id}`} className="mt-4">
+                        <Button
+                          variant="ghost"
+                          className="w-full justify-between text-[hsl(180,60%,30%)] hover:bg-[hsl(180,60%,30%)]/10 hover:text-[hsl(180,60%,25%)]"
+                        >
+                          View Details
+                          <ChevronRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                        </Button>
+                      </Link>
+                      {/* --- MODIFICATION END --- */}
                     </CardContent>
                   </Card>
                 )
