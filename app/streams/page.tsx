@@ -1,4 +1,4 @@
-"use client"
+"use client" // <-- THIS IS THE REQUIRED CORRECTION
 
 import { useState } from "react"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
@@ -43,7 +43,7 @@ const streams = [
     careers: ["Mechanical Engineer", "Automotive Engineer", "Robotics Engineer", "Design Engineer"],
     icon: GraduationCap,
     color: "bg-[hsl(142,71%,45%)]",
-    youtubeVideoId: "SO04hV8AnP0",
+    youtubeVideoId: "NDa3AGPobS4",
   },
   {
     id: "chartered-accountancy",
@@ -55,7 +55,7 @@ const streams = [
     careers: ["Chartered Accountant", "Tax Consultant", "Financial Advisor", "Auditor"],
     icon: Calculator,
     color: "bg-[hsl(24,95%,53%)]",
-    youtubeVideoId: "G6a9Ld2BVSQ",
+    youtubeVideoId: "fe9ou8EVheM",
   },
   {
     id: "business-administration",
@@ -67,7 +67,7 @@ const streams = [
     careers: ["Business Manager", "Marketing Manager", "HR Manager", "Entrepreneur"],
     icon: Calculator,
     color: "bg-[hsl(24,95%,53%)]",
-    youtubeVideoId: "2nC8sFtrg4w",
+    youtubeVideoId: "dWWSLSJ26_0",
   },
   {
     id: "psychology",
@@ -79,7 +79,7 @@ const streams = [
     careers: ["Clinical Psychologist", "Counselor", "HR Specialist", "Researcher"],
     icon: Palette,
     color: "bg-[hsl(0,72%,51%)]",
-    youtubeVideoId: "83nSxx-Y5q4",
+    youtubeVideoId: "U0OR7QTShyE",
   },
   {
     id: "journalism",
@@ -91,7 +91,7 @@ const streams = [
     careers: ["Journalist", "Content Writer", "News Anchor", "Digital Marketer"],
     icon: Palette,
     color: "bg-[hsl(0,72%,51%)]",
-    youtubeVideoId: "JTqgTjW58sM",
+    youtubeVideoId: "lPHrwMCbQ-0",
   },
   {
     id: "mbbs",
@@ -103,7 +103,7 @@ const streams = [
     careers: ["Doctor", "Surgeon", "Medical Officer", "Specialist"],
     icon: Stethoscope,
     color: "bg-[hsl(142,71%,45%)]",
-    youtubeVideoId: "s4xGHbBE0vA",
+    youtubeVideoId: "Bk9wS_wdjlI",
   },
   {
     id: "pharmacy",
@@ -115,7 +115,7 @@ const streams = [
     careers: ["Pharmacist", "Drug Inspector", "Research Scientist", "Medical Representative"],
     icon: Stethoscope,
     color: "bg-[hsl(142,71%,45%)]",
-    youtubeVideoId: "F_cIIL1yKw8",
+    youtubeVideo23M4ZBMab60Id: "",
   },
   {
     id: "law",
@@ -127,7 +127,7 @@ const streams = [
     careers: ["Lawyer", "Corporate Counsel", "Judge", "Legal Advisor"],
     icon: Scale,
     color: "bg-[hsl(24,95%,53%)]",
-    youtubeVideoId: "mgu_mY0Gq_4",
+    youtubeVideoId: "vaFtMgbJUpE",
   },
   {
     id: "graphic-design",
@@ -139,7 +139,7 @@ const streams = [
     careers: ["Graphic Designer", "UI/UX Designer", "Brand Designer", "Art Director"],
     icon: Briefcase,
     color: "bg-[hsl(0,72%,51%)]",
-    youtubeVideoId: "YqQx75OPRa0",
+    youtubeVideoId: "rOhn4d0GzD8",
   },
   {
     id: "architecture",
@@ -151,7 +151,7 @@ const streams = [
     careers: ["Architect", "Urban Planner", "Interior Designer", "Landscape Architect"],
     icon: Briefcase,
     color: "bg-[hsl(0,72%,51%)]",
-    youtubeVideoId: "o9Q68b5I9Pg",
+    youtubeVideoId: "iCLI422Af-0",
   },
 ]
 

@@ -1,5 +1,3 @@
-"use client"
-
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import Link from "next/link"
@@ -17,8 +15,9 @@ import {
 } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
+// This data is already correct with the new video ID
 const streams = [
-    {
+  {
     id: "computer-science",
     category: "science",
     title: "Computer Science & Engineering",
@@ -28,7 +27,7 @@ const streams = [
     careers: ["Software Engineer", "Data Scientist", "AI Specialist", "Full Stack Developer", "Cybersecurity Analyst"],
     icon: GraduationCap,
     color: "bg-[hsl(142,71%,45%)]",
-    youtubeVideoId: "nKEupNYjlZk",
+    youtubeVideoId: "nKEupNYjlZk", // <-- Already updated
     keyHighlights: [
       "Focus on algorithms and data structures.",
       "Explore artificial intelligence and machine learning.",
@@ -46,7 +45,7 @@ const streams = [
     careers: ["Mechanical Engineer", "Automotive Engineer", "Robotics Engineer", "Design Engineer"],
     icon: GraduationCap,
     color: "bg-[hsl(142,71%,45%)]",
-    youtubeVideoId: "nKEupNYjlZk",
+    youtubeVideoId: "NDa3AGPobS4", // <-- Already updated
     keyHighlights: [
       "Study thermodynamics and fluid mechanics.",
       "Learn about design and manufacturing processes.",
@@ -64,7 +63,7 @@ const streams = [
     careers: ["Chartered Accountant", "Tax Consultant", "Financial Advisor", "Auditor"],
     icon: Calculator,
     color: "bg-[hsl(24,95%,53%)]",
-    youtubeVideoId: "nKEupNYjlZk",
+    youtubeVideoId: "fe9ou8EVheM", // <-- Already updated
     keyHighlights: [
       "Master financial reporting and analysis.",
       "Understand tax laws and regulations.",
@@ -82,7 +81,7 @@ const streams = [
     careers: ["Business Manager", "Marketing Manager", "HR Manager", "Entrepreneur"],
     icon: Calculator,
     color: "bg-[hsl(24,95%,53%)]",
-    youtubeVideoId: "nKEupNYjlZk",
+    youtubeVideoId: "dWWSLSJ26_0", // <-- Already updated
     keyHighlights: [
       "Develop strong leadership and management skills.",
       "Learn marketing strategies and brand management.",
@@ -100,7 +99,7 @@ const streams = [
     careers: ["Clinical Psychologist", "Counselor", "HR Specialist", "Researcher"],
     icon: Palette,
     color: "bg-[hsl(0,72%,51%)]",
-    youtubeVideoId: "nKEupNYjlZk",
+    youtubeVideoId: "U0OR7QTShyE", // <-- Already updated
     keyHighlights: [
       "Study cognitive processes and human development.",
       "Understand mental health conditions and treatments.",
@@ -118,7 +117,7 @@ const streams = [
     careers: ["Journalist", "Content Writer", "News Anchor", "Digital Marketer"],
     icon: Palette,
     color: "bg-[hsl(0,72%,51%)]",
-    youtubeVideoId: "nKEupNYjlZk",
+    youtubeVideoId: "lPHrwMCbQ-0", // <-- Already updated
     keyHighlights: [
       "Master reporting and journalistic ethics.",
       "Learn content creation for various media.",
@@ -136,7 +135,7 @@ const streams = [
     careers: ["Doctor", "Surgeon", "Medical Officer", "Specialist"],
     icon: Stethoscope,
     color: "bg-[hsl(142,71%,45%)]",
-    youtubeVideoId: "nKEupNYjlZk",
+    youtubeVideoId: "Bk9wS_wdjlI", // <-- Already updated
     keyHighlights: [
       "Gain in-depth knowledge of human anatomy and physiology.",
       "Learn patient diagnosis and treatment protocols.",
@@ -154,7 +153,7 @@ const streams = [
     careers: ["Pharmacist", "Drug Inspector", "Research Scientist", "Medical Representative"],
     icon: Stethoscope,
     color: "bg-[hsl(142,71%,45%)]",
-    youtubeVideoId: "nKEupNYjlZk",
+    youtubeVideoId: "23M4ZBMab60", // <-- Already updated
     keyHighlights: [
       "Study pharmacology and medicinal chemistry.",
       "Understand drug formulation and delivery systems.",
@@ -172,7 +171,7 @@ const streams = [
     careers: ["Lawyer", "Corporate Counsel", "Judge", "Legal Advisor"],
     icon: Scale,
     color: "bg-[hsl(24,95%,53%)]",
-    youtubeVideoId: "nKEupNYjlZk",
+    youtubeVideoId: "vaFtMgbJUpE", // <-- Already updated
     keyHighlights: [
       "Master legal principles and jurisprudence.",
       "Develop strong advocacy and argumentation skills.",
@@ -190,7 +189,7 @@ const streams = [
     careers: ["Graphic Designer", "UI/UX Designer", "Brand Designer", "Art Director"],
     icon: Briefcase,
     color: "bg-[hsl(0,72%,51%)]",
-    youtubeVideoId: "nKEupNYjlZk",
+    youtubeVideoId: "rOhn4d0GzD8", // <-- Already updated
     keyHighlights: [
       "Learn visual communication principles.",
       "Master design software and tools.",
@@ -208,7 +207,7 @@ const streams = [
     careers: ["Architect", "Urban Planner", "Interior Designer", "Landscape Architect"],
     icon: Briefcase,
     color: "bg-[hsl(0,72%,51%)]",
-    youtubeVideoId: "nKEupNYjlZk",
+    youtubeVideoId: "iCLI422Af-0", // <-- Already updated
     keyHighlights: [
       "Study architectural theory and history.",
       "Learn building design and construction techniques.",
@@ -224,6 +223,7 @@ type StreamDetailPageProps = {
   }
 }
 
+// NOTE: No "use client" here! This is a Server Component.
 export default function StreamDetailPage({ params }: StreamDetailPageProps) {
   const stream = streams.find((s) => s.id === params.streamId)
 
@@ -279,9 +279,8 @@ export default function StreamDetailPage({ params }: StreamDetailPageProps) {
                 <CardTitle>Stream Overview</CardTitle>
               </CardHeader>
               <CardContent>
-                {/* --- CHANGE HERE --- */}
-                {/* Replaced 'aspect-w-16 aspect-h-9' with 'aspect-square' for a 1:1 ratio */}
-                <div className="aspect-square overflow-hidden rounded-lg border">
+                {/* This iframe dynamically uses the correct youtubeVideoId */}
+                <div className="aspect-video overflow-hidden rounded-lg border">
                   <iframe
                     src={`https://www.youtube.com/embed/${stream.youtubeVideoId}`}
                     title="YouTube video player"
