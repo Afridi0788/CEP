@@ -86,10 +86,7 @@ export default function HomePage() {
         <div className="relative mx-auto max-w-7xl">
           <div className="grid gap-12 lg:grid-cols-2 lg:gap-8">
             <div className="flex flex-col justify-center">
-              <div className="mb-4 inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-2 text-sm font-medium backdrop-blur-sm">
-                <Sparkles className="h-4 w-4" />
-                AI-Powered Career Guidance
-              </div>
+             
               <h1 className="mb-6 text-balance text-4xl font-bold leading-tight sm:text-5xl lg:text-6xl">
                 Discover Your Perfect Career Path
               </h1>
